@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devika Yanamala | Journey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Gochi+Hand&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-gradient: linear-gradient(135deg, #f66e1a 0%, #743ee3 100%);
+            --dark-blue: #002d70;
+            --text-dark: #171616;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-cursive: 'Gochi Hand', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Generic Section Styles */
+        section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            padding: 120px 5%;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+
+        /* Top Left Logo (Repeated on sections) */
+        .top-logo {
+            position: absolute;
+            top: 40px;
+            left: 5%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 20;
+        }
+
+        .logo-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--brand-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-circle svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
+        .logo-text {
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .logo-text.light { color: white; }
+        .logo-text.dark { color: #171616; }
+
+        /* Background Gradient Blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--brand-gradient);
+            z-index: 1;
+        }
+
+        /* Typography */
+        h1, h2, h3 { font-family: var(--font-head); }
+        
+        .list-disc {
+            list-style-type: disc;
+            padding-left: 24px;
+        }
+        
+        .list-disc li {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        /* === Section 1: Hero === */
+        .s1-hero {
+            background-color: var(--dark-blue);
+            /* Creating an architectural background effect */
+            background-image: linear-gradient(var(--dark-blue), rgba(0,45,112,0.85)), 
+                              repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 40px);
+            color: white;
+            justify-content: flex-start;
+        }
+
+        .s1-hero .blob-1 { width: 450px; height: 450px; top: -150px; right: -50px; }
+        .s1-hero .blob-2 { width: 220px; height: 220px; top: 60%; right: 15%; }
+        .s1-hero .blob-3 { width: 80px; height: 80px; top: 30%; right: 35%; }
+
+        .s1-hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .s1-hero h2 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .s1-hero .cursive-sub {
+            font-family: var(--font-cursive);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.2;
+            max-width: 650px;
+        }
+
+        /* === Section 2: Intro (Split Layout) === */
+        .s2-intro { background: white; }
+        .s2-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .s2-image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* square aspect */
+        }
+
+        .s2-bg-blob {
+            position: absolute;
+            top: 20%; left: -10%;
+            width: 110%; height: 110%;
+            background: var(--brand-gradient);
+            border-radius: 50% 50% 10% 50%;
+            z-index: 1;
+        }
+
+        .s2-photo {
+            position: absolute;
+            top: 0; left: 10%;
+            width: 85%; height: 85%;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 2;
+            border: 15px solid #f4db93; /* Match the Canva yellow border vibe */
+        }
+        
+        .s2-small-blob {
+            position: absolute;
+            top: 0; right: 0;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: var(--brand-gradient);
+            z-index: 3;
+        }
+
+        .s2-text h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .s2-divider {
+            width: 100%;
+            height: 3px;
+            background: #000;
+            margin-bottom: 30px;
+        }
+
+        /* === Section 3: Story (Text Left, Curved Photo Right) === */
+        .s3-story { background: white; padding-right: 0; }
+        .s3-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .s3-text h3 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .s3-text h4 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .s3-photo-wrapper {
+            position: relative;
+            height: 100%;
+            min-height: 600px;
+            width: 100%;
+        }
+
+        .s3-photo {
+            position: absolute;
+            top: 0; right: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 500px 0 0 0; /* Creates that massive curve on the left */
+        }
+        
+        .s3-blob {
+            position: absolute;
+            top: 20%; left: -30px;
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: var(--brand-gradient);
+            z-index: 3;
+        }
+
+        /* === Section 4: Full width text === */
+        .s4-full { background: white; justify-content: flex-start; align-items: flex-start; padding-top: 150px; }
+        
+        .s4-text h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .gradient-pill {
+            display: inline-block;
+            width: 120px;
+            height: 30px;
+            border-radius: 15px;
+            background: var(--brand-gradient);
+            margin-top: 40px;
+            margin-right: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .s2-grid, .s3-grid { grid-template-columns: 1fr; }
+            .s3-photo-wrapper { min-height: 400px; }
+            .s3-photo { border-radius: 200px 200px 0 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1: Hero Dark -->
+    <section class="s1-hero">
+        <div class="top-logo">
+            <div class="logo-circle">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            </div>
+            <div class="logo-text light">DEVIKA YANAMALA</div>
+        </div>
+        
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+
+        <div class="container">
+            <h1>Devika Yanamala</h1>
+            <h2>MSc | DS | AI</h2>
+            <div class="cursive-sub">
+                To overcome every challenge, trust the process and find calmness in chaos.
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Split Image Left -->
+    <section class="s2-intro">
+        <div class="top-logo">
+            <div class="logo-circle">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            </div>
+            <div class="logo-text dark">DEVIKA YANAMALA</div>
+        </div>
+
+        <div class="container s2-grid">
+            <div class="s2-image-wrapper">
+                <div class="s2-bg-blob"></div>
+                <img src="devika_hero.png" alt="Devika" class="s2-photo">
+                <div class="s2-small-blob"></div>
+            </div>
+            
+            <div class="s2-text">
+                <h2>Hi,<br>I'm Devika Yanamala</h2>
+                <div class="s2-divider"></div>
+                <ul class="list-disc">
+                    <li>I am someone who finds calmness, clarity, and inner strength even when life gets overwhelming.</li>
+                    <li>I believe that where you start in life never defines how far you can go.</li>
+                    <li>I approach every challenge with patience, curiosity, and an unshakeable belief in the process.</li>
+                    <li>I thrive on taking messy, complex situations and turning them into calm, meaningful solutions.</li>
+                    <li>Relocated to the UK to complete my Master's degree in Data Science & Artificial Intelligence.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Text Left, Curved Image Right -->
+    <section class="s3-story">
+        <div class="top-logo">
+            <div class="logo-circle">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            </div>
+            <div class="logo-text dark">DEVIKA YANAMALA</div>
+        </div>
+
+        <div class="container s3-grid" style="max-width: 1400px; padding-left: 5%; width: 100%;">
+            <div class="s3-text">
+                <h3>My journey didn't start with privilege. It was built on determination and hard work.<br>It doesn't mean there were no hurdles in my life:</h3>
+                
+                <ul class="list-disc" style="margin-top: 20px;">
+                    <li>Born in a small village & completed early studies in a government school.</li>
+                    <li>Studied hard, secured a competitive merit seat for free education, and completed my Engineering degree.</li>
+                    <li>Took on the responsibility of taking care of my family from a very young age.</li>
+                    <li>Faced circumstances that forced me to grow up fast and mature early.</li>
+                    <li>Overcame moments of self-doubt and financial barriers to build my path forward.</li>
+                    <li>Learned early that hard work is the ultimate equalizer.</li>
+                </ul>
+                
+                <div class="gradient-pill"></div>
+                <div class="gradient-pill"></div>
+            </div>
+            
+            <div class="s3-photo-wrapper">
+                <div class="s3-blob"></div>
+                <!-- Reusing devika portrait for this slide to mix things up -->
+                <img src="devika_portrait.jpg" alt="Devika" class="s3-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Full width conclusion -->
+    <section class="s4-full" style="min-height: 80vh; padding-bottom: 100px;">
+        <div class="top-logo">
+            <div class="logo-circle">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            </div>
+            <div class="logo-text dark">DEVIKA YANAMALA</div>
+        </div>
+        
+        <div class="container s4-text">
+            <h2>Those circumstances never stopped me. I trusted the process every step of the way.</h2>
+            
+            <ul class="list-disc" style="margin-top: 30px;">
+                <li>I refused to let any obstacle define the boundaries of my dreams.</li>
+                <li>Worked relentlessly and became the very first person in my family to move abroad.</li>
+                <li>Moved to the UK and successfully completed my MSc in Data Science & Artificial Intelligence.</li>
+                <li>Made my parents proud, and I am still relentlessly working toward the big goals I dreamed of.</li>
+                <li>Proved to myself that if I stay calm and keep putting in the work, I will figure it out and thrive anywhere.</li>
+            </ul>
+            
+            <div class="gradient-pill"></div>
+            <div class="gradient-pill"></div>
+        </div>
+        
+        <!-- Bottom right decorative blob -->
+        <div class="blob" style="bottom: -50px; right: 5%; width: 120px; height: 120px; z-index: 1;"></div>
+    </section>
+
+    <!-- Section 5: London Experience Photo Slide -->
+    <section style="background-color: #0f172a; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <div class="top-logo">
+            <div class="logo-circle">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            </div>
+            <div class="logo-text light">DEVIKA YANAMALA</div>
+        </div>
+        
+        <div class="container">
+            <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); font-family: var(--font-head); font-weight: 800; margin-bottom: 40px;">Trusting the Process In London, UK 🇬🇧</h2>
+            
+            <img src="devika_london.jpg" alt="Devika in London" style="width: 100%; max-width: 900px; height: auto; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); margin-bottom: 50px; border: 2px solid rgba(255,255,255,0.1);">
+            
+            <p style="font-family: var(--font-cursive); font-size: clamp(1.5rem, 3vw, 2.2rem); max-width: 1000px; margin: 0 auto; line-height: 1.4; color: #e2e8f0;">
+                "Moving across the world to the UK taught me that no situation is too overwhelming and no challenge is too big. Whether in life or in complex problems, if I stay calm and keep working hard, I will figure it out and thrive."
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 6: Let's Connect -->
+    <section style="background: white; text-align: center;">
+        <div class="top-logo">
+            <div class="logo-circle">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            </div>
+            <div class="logo-text dark">DEVIKA YANAMALA</div>
+        </div>
+        
+        <div class="container">
+            <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); font-family: var(--font-head); font-weight: 900; margin-bottom: 20px; color: var(--dark-blue);">Let's Connect & Build Something Meaningful</h2>
+            
+            <p style="font-size: 1.4rem; font-weight: 500; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Whether you want to collaborate, discuss ideas, or connect about life: I am always open to meaningful conversations.
+            </p>
+            
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 50px;">
+                <a href="mailto:devikayanamala55@gmail.com" style="background: var(--brand-gradient); color: white; padding: 15px 40px; border-radius: 40px; text-decoration: none; font-weight: 800; font-size: 1.2rem; font-family: var(--font-head); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+                    ✉️ devikayanamala55@gmail.com
+                </a>
+                <a href="#" style="background: var(--dark-blue); color: white; padding: 15px 40px; border-radius: 40px; text-decoration: none; font-weight: 800; font-size: 1.2rem; font-family: var(--font-head); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s;">
+                    💼 LinkedIn
+                </a>
+                <a href="#" style="background: #171616; color: white; padding: 15px 40px; border-radius: 40px; text-decoration: none; font-weight: 800; font-size: 1.2rem; font-family: var(--font-head); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s;">
+                    💻 GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
